@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graymatter and Rayshawn Jenkins</title>
+<meta name="description" content="Partner landing page. Structure mirrors the Magic Mind athlete partner LP; content, tokens, and assets are Graymatter.">
+<!--
+  lp-lab / pages/partner-athlete
+  Teardown this mirrors: deconstructions/2026-09-11-magicmind-stafford.md
+  Section comments below carry the Magic Mind block they map to, so a reviewer can diff intent.
+  Tokens: ../../src/brand/tokens.css (Notion Brand Intake). Components: ../../src/brand/base.css.
+  Placeholders are rendered as .todo-chip so nothing unsourced can pass as final.
+-->
+<link rel="stylesheet" href="../../src/brand/tokens.css">
+<link rel="stylesheet" href="../../src/brand/base.css">
+<link rel="stylesheet" href="page.css">
+<link rel="icon" href="../../assets/brand/graymatter-icon.png">
+</head>
+<body>
+
+<!-- ============================================================
+     0. Announcement bar
+     MM: white strip, caps bold "BOOST MENTAL PERFORMANCE ..."
+     GM: Linen strip, mono bold, sentence case. Copy is the live site announcement.
+     ============================================================ -->
+<div class="announce surface-subtle">
+  <p class="t-small t-bold">Subscribers enjoy 50% off, plus free shipping and gifts.</p>
+</div>
+
+<!-- ============================================================
+     1. Header
+     MM: dark bar, hand-drawn wordmark, Shop / Science / Reviews, account, cart.
+     GM: Tarmac bar, Lucid wordmark (on-dark variant), three links, cart.
+     ============================================================ -->
+<header class="site-header surface-inverse">
+  <div class="wrap site-header__row">
+    <a href="#" class="site-header__logo" aria-label="Graymatter home">
+      <img src="../../assets/brand/graymatter-wordmark-lucid.svg" alt="Graymatter" width="141" height="28">
+    </a>
+    <nav class="site-header__nav" aria-label="Primary">
+      <a href="#formats">Shop</a>
+      <a href="#mechanism">Science</a>
+      <a href="#blends">Ingredients</a>
+    </nav>
+    <a href="#formats" class="site-header__cart t-small t-bold" aria-label="Cart, 0 items">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 7h12l-1 12H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      Cart (0)
+    </a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================
+     2. Founders film
+     MM: full-width 16:9 YouTube embed, 576px tall, partner name in the title.
+     GM: full-width 16:9 click-to-play facade. The thumbnail fills the viewport width like the
+         source page; the real youtube-nocookie iframe is injected only on click, so nothing
+         third-party loads until someone asks for it. Video: kKZX1vOoWsk, "Scanning My Brain And
+         Crossing $20M ARR | Building The Brand Ep. 3", from youtube.com/@Graymatter_co (Jim on
+         the frame). Thumbnail is a local copy of the YouTube maxres frame. Previous pick, both
+         founders on frame: SxXwW0h3VTk.
+     ============================================================ -->
+<section class="film surface-inverse" aria-labelledby="film-title">
+  <figure class="film__frame" data-video data-video-id="kKZX1vOoWsk">
+    <div class="film__stage">
+      <img class="film__poster" src="../../assets/video/kKZX1vOoWsk-maxres.jpg" alt="Jim Phillips in a cap, Building the Brand episode three" width="1280" height="720">
+      <div class="film__meta">
+        <span class="pill">Building the Brand, Ep. 3</span>
+        <p id="film-title" class="visually-hidden">Scanning my brain and crossing $20M ARR.</p>
+      </div>
+      <button class="film__play" type="button" aria-label="Play: Scanning my brain and crossing $20M ARR">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+    </div>
+  </figure>
+</section>
+
+<!-- ============================================================
+     3. Split hero
+     MM: left white, 67px bold + italic headline, serif "Trusted by Matthew Stafford", bio.
+         Right: pink field, hand holding the shot.
+     GM: left Lucid with graph-grid texture, Exposure -40 line then Exposure +40 line,
+         serif subhead, mono lead bio, CTA pair. Right: surface.cool with hand-and-sachets photo.
+         Headline is the ICP 1 mechanism from Notion page 10, problem then solution.
+     ============================================================ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__copy surface-base">
+    <div class="hero__inner stack-lg">
+      <p class="t-eyebrow">Partner series</p>
+      <h1 id="hero-title" class="hero__title">
+        <span class="t-display">You’ve been buying alertness.</span>
+        <span class="t-display t-display-light">Mental nutrition is the real edge.</span>
+      </h1>
+      <p class="t-subhead">Trusted by Rayshawn Jenkins.</p>
+      <p class="t-lead hero__bio">
+        Rayshawn Jenkins is a starting NFL safety. A season is a long grind of film, travel, and
+        practice, and he went looking for a natural way to keep his mental game sharp through all of it.
+      </p>
+      <p><span class="todo-chip">Bio: two factual sentences, pending partner team sign-off.</span></p>
+      <div class="hero__ctas">
+        <a class="btn btn--primary" href="#formats">Shop Graymatter
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn btn--secondary" href="#mechanism">See the science</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero__media surface-cool">
+    <img src="../../assets/product/graymatter-32.jpg" alt="Hand holding three Graymatter single-serve packs against a blue background" width="1920" height="1920">
+  </div>
+</section>
+
+<!-- ============================================================
+     4. Pull quote
+     MM: #EFEFEF, scalloped B&W photo left, 24px quote, name, credential.
+     GM: Linen, radial tick-ring framed photo, mono italic quote (italics = quotations),
+         mono bold name, mono credential. Quote is verbatim from the homepage carousel.
+     ============================================================ -->
+<section class="quote surface-subtle" aria-labelledby="quote-name">
+  <div class="wrap quote__grid">
+    <figure class="ring-frame quote__photo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="5" pathLength="360" stroke-dasharray="1.6 4.4"/>
+      </svg>
+      <img src="../../assets/people/rayshawn-jenkins.webp" alt="Rayshawn Jenkins running onto the field" width="1215" height="1215">
+    </figure>
+    <blockquote class="quote__body">
+      <p class="t-quote quote__text">“I’ve always been interested in finding natural ways to boost my mental game. When I discovered Graymatter, I knew I had found something special.”</p>
+      <footer class="quote__attr">
+        <p id="quote-name" class="t-lead t-bold">Rayshawn Jenkins</p>
+        <p class="t-small">Starting NFL Safety</p>
+      </footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. What is Graymatter + blend cards + attribute row
+     MM: yellow-to-green gradient, "What is Magic Mind?", 3 white ingredient cards, 4 ring badges.
+     GM: Olive (surface.nature) full-bleed with Tarmac text (pairing rule, no gradients),
+         4 blend cards (one per proprietary blend), then the bag's attribute row as a ruled mono strip.
+         Blend icons are geometric placeholders until the Icon Library files are pulled.
+     ============================================================ -->
+<section id="blends" class="section blends surface-nature" aria-labelledby="blends-title">
+  <div class="wrap">
+    <div class="blends__intro">
+      <h2 id="blends-title" class="t-h2">What is Graymatter?</h2>
+      <p class="t-lead">
+        Graymatter is a daily plant-based nootropic drink mix, PhD-formulated by a molecular biologist.
+        It blends nootropics and adaptogens to support focus, energy, brain health, and mental clarity
+        without jitters or crashes.*
+      </p>
+    </div>
+
+    <ul class="blends__grid">
+      <li class="card blend">
+        <svg class="blend__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M6 18c6-6 12 6 18 0s12 6 18 0M6 30c6-6 12 6 18 0s12 6 18 0"/>
+        </svg>
+        <div class="blend__head"><h3 class="t-h4">Flow</h3><span class="pill">Adaptogens</span></div>
+        <p class="t-body">Adaptogens for stress management. Supports a calm, focused state.*</p>
+        <p class="t-small t-bold blend__list">Red Panax Ginseng, Cordyceps, Lion’s Mane, Ashwagandha, Rhodiola.</p>
+      </li>
+      <li class="card blend">
+        <svg class="blend__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <circle cx="24" cy="24" r="17"/><path d="M16 24h16M26 18l6 6-6 6"/>
+        </svg>
+        <div class="blend__head"><h3 class="t-h4">Go</h3><span class="pill">Plant energy</span></div>
+        <p class="t-body">Plant-based energy that stays steady across the day, without the crash.*</p>
+        <p class="t-small t-bold blend__list">Maca Root, Green Tea, Korean Matcha, Guarana.</p>
+      </li>
+      <li class="card blend">
+        <svg class="blend__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <circle cx="24" cy="24" r="4"/><circle cx="10" cy="14" r="3"/><circle cx="38" cy="14" r="3"/><circle cx="12" cy="36" r="3"/><circle cx="36" cy="36" r="3"/>
+          <path d="M13 16l8 6M35 16l-8 6M14 34l7-7M34 34l-7-7"/>
+        </svg>
+        <div class="blend__head"><h3 class="t-h4">BrainX</h3><span class="pill">Nootropics</span></div>
+        <p class="t-body">Nootropics that support cognition and long-term brain health.*</p>
+        <p class="t-small t-bold blend__list">Nitrosigine®, L-Tyrosine, Alpha GPC, Phosphatidylserine, Huperzine A.</p>
+      </li>
+      <li class="card blend">
+        <svg class="blend__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M4 24c6-9 13-13 20-13s14 4 20 13c-6 9-13 13-20 13S10 33 4 24z"/><circle cx="24" cy="24" r="6"/>
+        </svg>
+        <div class="blend__head"><h3 class="t-h4">VisionDefense</h3><span class="pill">Carotenoids</span></div>
+        <p class="t-body">Carotenoids that support eye health through long screen days.*</p>
+        <p class="t-small t-bold blend__list">Vitamin C and E, Lutein, Zeaxanthin, Astaxanthin.</p>
+      </li>
+    </ul>
+
+    <!-- Certification badge row. MM shows four ring badges (Vegan, Kosher, No BPA, Third party tested).
+         Iconography page: certification claims take the LONG-DASHED ring, 12 dashes, tight gaps, line icon,
+         curved label. GMP Certified, Sugar Free, Plant-Based are named in the Icon Library; Third-Party Tested
+         is the live site's trust bar. Placeholders for the official badge files. -->
+    <ul class="badges" aria-label="Certifications">
+      <li class="badge">
+        <svg viewBox="0 0 120 120" role="img" aria-label="GMP Certified">
+          <defs><path id="arc-0" d="M 24 60 A 36 36 0 0 1 96 60"/></defs>
+          <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="23.2 4" transform="rotate(-90 60 60)"/>
+          <text class="badge__label" text-anchor="middle"><textPath href="#arc-0" startOffset="50%">GMP Certified</textPath></text>
+          <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" transform="translate(60 68)"><path d="M-12 2l7 7 17-17"/><circle cx="0" cy="0" r="16" stroke-dasharray="4 4"/></g>
+        </svg>
+      </li>
+      <li class="badge">
+        <svg viewBox="0 0 120 120" role="img" aria-label="Third-Party Tested">
+          <defs><path id="arc-1" d="M 24 60 A 36 36 0 0 1 96 60"/></defs>
+          <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="23.2 4" transform="rotate(-90 60 60)"/>
+          <text class="badge__label" text-anchor="middle"><textPath href="#arc-1" startOffset="50%">Third-Party Tested</textPath></text>
+          <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" transform="translate(60 68)"><path d="M-6 -14h12v9l9 15a3 3 0 0 1-3 4H-12a3 3 0 0 1-3-4l9-15z"/><path d="M-7 4h14"/></g>
+        </svg>
+      </li>
+      <li class="badge">
+        <svg viewBox="0 0 120 120" role="img" aria-label="Sugar Free">
+          <defs><path id="arc-2" d="M 24 60 A 36 36 0 0 1 96 60"/></defs>
+          <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="23.2 4" transform="rotate(-90 60 60)"/>
+          <text class="badge__label" text-anchor="middle"><textPath href="#arc-2" startOffset="50%">Sugar Free</textPath></text>
+          <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" transform="translate(60 68)"><path d="M-10 -8h20v16h-20z"/><path d="M-14 12L14 -12"/></g>
+        </svg>
+      </li>
+      <li class="badge">
+        <svg viewBox="0 0 120 120" role="img" aria-label="Plant-Based">
+          <defs><path id="arc-3" d="M 24 60 A 36 36 0 0 1 96 60"/></defs>
+          <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="23.2 4" transform="rotate(-90 60 60)"/>
+          <text class="badge__label" text-anchor="middle"><textPath href="#arc-3" startOffset="50%">Plant-Based</textPath></text>
+          <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" transform="translate(60 68)"><path d="M0 14V-2"/><path d="M0 -2c-10 0-14-8-14-14 8 0 14 4 14 14z"/><path d="M0 6c10 0 14-8 14-14-8 0-14 4-14 14z"/></g>
+        </svg>
+      </li>
+    </ul>
+
+    <!-- Attribute row: mono text in a ruled row, matching the bag layout (Iconography: attribute lines are not badges). -->
+    <ul class="attrs hairline-top hairline-bottom t-small t-bold" aria-label="Product attributes">
+      <li>PhD Formulated</li>
+      <li>Nootropic Drink Mix</li>
+      <li>40 Servings</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. Format grid
+     MM: 2x2 tiles, one variable per tile (caffeine mg) in a mono pill, black pill CTA.
+     GM: 2x2 tiles, one variable per tile (servings), Tarmac pill CTA. Titles, list prices and
+         images from Shopify Admin on 2026-09-11. Product names use Graymatter, never the legacy line.
+     ============================================================ -->
+<section id="formats" class="section formats surface-base" aria-labelledby="formats-title">
+  <div class="wrap">
+    <div class="formats__intro">
+      <h2 id="formats-title" class="t-h2">Pick your format.</h2>
+      <div class="stack">
+        <p class="t-lead">Same formula in every format. Pick the flavor you will look forward to.</p>
+        <!-- MM tints each tile's mono pill by SKU. GM flavor is a different axis (which product, not a UI job),
+             so it gets swatch dots on the flavor tokens instead of recoloring the tiles. -->
+        <ul class="flavors t-small t-bold" aria-label="Flavors">
+          <li><span class="swatch" style="--swatch: var(--flavor-strawberry)"></span>Strawberry Lemon</li>
+          <li><span class="swatch" style="--swatch: var(--flavor-tangerine)"></span>Tangerine</li>
+          <li><span class="swatch" style="--swatch: var(--flavor-cacao)"></span>Cacao</li>
+        </ul>
+      </div>
+    </div>
+    <ul class="formats__grid">
+      <li class="card card--subtle format">
+        <div class="format__head"><h3 class="t-h4">Graymatter Bag</h3><span class="pill">40 servings</span></div>
+        <img src="../../assets/product/bag-hero.png" alt="Graymatter bag, Tangerine, with tangerines behind it" width="2240" height="2240" loading="lazy">
+        <p class="t-small">The daily bag. One scoop a day for about six weeks.</p>
+        <p class="t-body t-bold format__price">$78.99</p>
+        <a class="btn btn--inverse btn--block" href="https://trygraymatter.com/products/brightmind-sub">Shop the bag</a>
+      </li>
+      <li class="card card--subtle format">
+        <div class="format__head"><h3 class="t-h4">Travel Packs</h3><span class="pill">10 or 20 packs</span></div>
+        <img src="../../assets/product/productimg.png" alt="Graymatter single-serve travel pack, Strawberry Lemonade" width="727" height="879" loading="lazy">
+        <p class="t-small">Single-serve packs for the bag, the desk, and the road.</p>
+        <p class="t-body t-bold format__price">From $19.99</p>
+        <a class="btn btn--inverse btn--block" href="https://trygraymatter.com/products/bright-mind-nootropics-travel-packs-sub">Shop travel packs</a>
+      </li>
+      <li class="card card--subtle format">
+        <div class="format__head"><h3 class="t-h4">Twin Pack</h3><span class="pill">80 servings</span></div>
+        <img src="../../assets/product/Graymatter_Packaging_1_4fb6d354-e810-4bee-9c37-878bacae9cde.png" alt="Graymatter bag, Strawberry Lemonade" width="370" height="492" loading="lazy">
+        <p><span class="todo-chip">Needs a twin-pack cutout. Single bag shown.</span></p>
+        <p class="t-small">Two bags. Stock the routine for the season.</p>
+        <p class="t-body t-bold format__price">$149.99</p>
+        <a class="btn btn--inverse btn--block" href="https://trygraymatter.com/products/bright-mind-twin-pack-nootropics-enhanced-focus-sub">Shop the twin pack</a>
+      </li>
+      <li class="card card--subtle format">
+        <div class="format__head"><h3 class="t-h4">Flavor Variety Pack</h3><span class="pill">6 packs, 3 flavors</span></div>
+        <img src="../../assets/product/6_Travel_Pack.png" alt="Six Graymatter travel packs fanned out, two of each flavor" width="1080" height="1080" loading="lazy">
+        <p class="t-small">Two of each flavor. Find yours before you commit to a bag.</p>
+        <p class="t-body t-bold format__price">$24.99</p>
+        <a class="btn btn--inverse btn--block" href="https://trygraymatter.com/products/for-you-flavor-pack">Try all three</a>
+      </li>
+    </ul>
+    <p class="t-caption formats__note">List prices from Shopify on September 11, 2026. Subscription and first-order pricing will be added once the offer owner confirms it.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. Mechanism split
+     MM: teal photo with giant "5x", right column with lead, outline CTA, 4 hairline rows.
+     GM: Tarmac photo panel with the timeline's headline number, right column with lead,
+         outline CTA, 4 hairline rows from the homepage timeline. Every claim is asterisked.
+         No fabricated efficacy multiple.
+     ============================================================ -->
+<section id="mechanism" class="mechanism" aria-labelledby="mechanism-title">
+  <div class="mechanism__media surface-inverse">
+    <img src="../../assets/product/travelpack-lifestyle.jpg" alt="Pouring a Graymatter travel pack into a glass of water" width="2160" height="2160" loading="lazy">
+    <div class="mechanism__stat">
+      <p class="t-display t-display-xl hl-text">4 to 8</p>
+      <p class="t-h3 t-display-light">hours of calm, focused energy.*</p>
+    </div>
+  </div>
+  <div class="mechanism__copy surface-base">
+    <div class="mechanism__inner">
+      <h2 id="mechanism-title" class="t-lead mechanism__lead">
+        Train your mind like you do your body. Graymatter is built for a daily routine, and the effect
+        builds with it.*
+      </h2>
+      <a class="btn btn--secondary" href="https://trygraymatter.com/pages/ingredients-1">See the science
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <ul class="timeline">
+        <li class="timeline__row hairline-top">
+          <h3 class="t-lead t-bold">First 15 minutes</h3>
+          <p class="t-small">Most people notice a mental uplift within minutes.*</p>
+        </li>
+        <li class="timeline__row hairline-top">
+          <h3 class="t-lead t-bold">Next 4 to 8 hours</h3>
+          <p class="t-small">A calm, focused, long-lasting productive state from the four blends working together.*</p>
+        </li>
+        <li class="timeline__row hairline-top">
+          <h3 class="t-lead t-bold">No crash</h3>
+          <p class="t-small">Plant-based energy and adaptogens hold a steady state instead of a spike and a drop.*</p>
+        </li>
+        <li class="timeline__row hairline-top hairline-bottom">
+          <h3 class="t-lead t-bold">Week two and beyond</h3>
+          <p class="t-small">Cognitive stamina builds as the nootropics and adaptogens do their work over time.*</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. People rail
+     MM: "Scientific Advisory Board", 6 circular headshots with credentials, prev/next.
+     GM: "Trusted by top performers." Verbatim testimonials with ring-framed photos.
+         Quotes containing the legacy product name are excluded (verbatim rule, no edits).
+     ============================================================ -->
+<section class="section people surface-base" aria-labelledby="people-title">
+  <div class="wrap">
+    <div class="people__intro">
+      <h2 id="people-title" class="t-h2">Trusted by <span class="hl">top performers.</span></h2>
+      <div class="people__intro-side">
+        <p class="t-lead">Athletes, clinicians, and operators who cannot afford a foggy afternoon. Their words, unedited.</p>
+        <div class="people__nav">
+          <button class="rail-btn" type="button" data-rail-prev aria-label="Previous">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>
+          </button>
+          <button class="rail-btn" type="button" data-rail-next aria-label="Next">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <ul class="rail" data-rail>
+      <li class="person">
+        <figure class="ring-frame person__photo">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="5" pathLength="360" stroke-dasharray="1.6 4.4"/></svg>
+          <img src="../../assets/people/rae_headshot.jpg" alt="Rae Bahn" width="400" height="400" loading="lazy">
+        </figure>
+        <p class="t-body t-bold">Rae Bahn</p>
+        <p class="t-small person__role">Travel Nurse</p>
+        <p class="t-small person__quote">“I take Graymatter in the middle of my 12 hour shifts and it powers me through every time. It’s all natural and fits my healthy lifestyle.”</p>
+      </li>
+      <li class="person">
+        <figure class="ring-frame person__photo">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="5" pathLength="360" stroke-dasharray="1.6 4.4"/></svg>
+          <img src="../../assets/people/goldin_headshot.webp" alt="Grayson Goldin" width="180" height="270" loading="lazy">
+        </figure>
+        <p class="t-body t-bold">Grayson Goldin</p>
+        <p class="t-small person__role">Professional Pickleball Player</p>
+        <p class="t-small person__quote">“On tournament days, every point counts. So I make sure my mind is as sharp as my body.”</p>
+      </li>
+      <li class="person">
+        <figure class="ring-frame person__photo person__photo--mono" aria-label="Dr. Jeffrey Wiegers">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="5" pathLength="360" stroke-dasharray="1.6 4.4"/></svg>
+          <span class="t-h3">JW</span>
+        </figure>
+        <p class="t-body t-bold">Dr. Jeffrey Wiegers</p>
+        <p class="t-small person__role">Regenerative Medicine Physician</p>
+        <p class="t-small person__quote">“Graymatter uses top quality ingredients and testing. They truly hit the mark on this product and its worth every penny.”</p>
+      </li>
+      <li class="person">
+        <figure class="ring-frame person__photo">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="5" pathLength="360" stroke-dasharray="1.6 4.4"/></svg>
+          <img src="../../assets/people/louis-bobelis.png" alt="Louis Bobelis" width="1290" height="957" loading="lazy">
+        </figure>
+        <p class="t-body t-bold">Louis Bobelis</p>
+        <p class="t-small person__role">Special Forces and Chief Security Officer</p>
+        <p class="t-small"><span class="todo-chip">Quote on file uses legacy naming. Needs a fresh verbatim quote.</span></p>
+      </li>
+    </ul>
+
+    <div class="people__cta">
+      <a class="btn btn--secondary" href="https://trygraymatter.com/#reviews">Read all reviews</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     9. Footer
+     MM: black, wordmark, italic tagline, email capture, 4 columns, socials, legal.
+     GM: Tarmac, Lucid wordmark, tagline (Title Case is the sanctioned exception), email capture
+         with Meadow CTA, 4 columns, boxed FDA disclaimer (statutory reference text pending
+         doctor-approved string), legal row.
+     ============================================================ -->
+<footer class="site-footer surface-inverse">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <div class="stack-lg">
+        <img src="../../assets/brand/graymatter-wordmark-lucid.svg" alt="Graymatter" width="201" height="40">
+        <p class="t-h3 t-display-light">Strengthen Your Cognition.</p>
+      </div>
+      <form class="capture stack" action="#" onsubmit="return false" aria-labelledby="capture-title">
+        <p id="capture-title" class="t-h4">Join the big brain club.</p>
+        <p class="t-small">Get scientific cognitive health news straight to your inbox.</p>
+        <div class="capture__row">
+          <label class="visually-hidden" for="capture-email">Email</label>
+          <input id="capture-email" class="capture__input" type="email" placeholder="Email" autocomplete="email">
+          <button class="btn btn--primary" type="submit">Join</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="site-footer__cols hairline-top">
+      <div>
+        <p class="t-small t-bold">Shop</p>
+        <ul class="t-small"><li><a href="#formats">Starter Kit</a></li><li><a href="#formats">Travel Packs</a></li><li><a href="#formats">Bundles</a></li><li><a href="#formats">Accessories</a></li></ul>
+      </div>
+      <div>
+        <p class="t-small t-bold">Learn</p>
+        <ul class="t-small"><li><a href="#mechanism">Science</a></li><li><a href="#blends">Ingredients</a></li><li><a href="https://trygraymatter.com/blogs/news">Blog</a></li><li><a href="https://trygraymatter.com/pages/about-us">About Us</a></li></ul>
+      </div>
+      <div>
+        <p class="t-small t-bold">Programs</p>
+        <ul class="t-small"><li><a href="https://trygraymatter.com/pages/graymatter-customer-referral">Ambassador Program</a></li><li><a href="https://trygraymatter.com/pages/70-day-challenge">70-Day Challenge</a></li><li><a href="https://trygraymatter.com/pages/wholesale">Wholesale</a></li><li><a href="#">Pay with HSA/FSA</a></li></ul>
+      </div>
+      <div>
+        <p class="t-small t-bold">Support</p>
+        <ul class="t-small"><li><a href="#">Manage Subscriptions</a></li><li><a href="#">Contact and FAQ</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Refund Policy</a></li></ul>
+      </div>
+    </div>
+
+    <p class="disclaimer">* These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+
+    <div class="site-footer__legal t-caption">
+      <p>© Graymatter Labs 2026. 851 N Wood Street, Chicago, IL 60622.</p>
+      <ul class="site-footer__social"><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">YouTube</a></li><li><a href="#">Facebook</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Founders film: click-to-play facade. Nothing from YouTube loads until the poster is clicked.
+  (function () {
+    var frame = document.querySelector('[data-video]');
+    if (!frame) return;
+    frame.querySelector('.film__play').addEventListener('click', function () {
+      var id = frame.getAttribute('data-video-id');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&color=white';
+      iframe.title = 'Scanning my brain and crossing $20M ARR';
+      iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      var stage = frame.querySelector('.film__stage');
+      stage.innerHTML = '';
+      stage.appendChild(iframe);
+    });
+  })();
+
+  // People rail: prev/next scroll one card width. Progressive enhancement only; the rail
+  // is a native horizontal scroller with snap points when JS is off.
+  (function () {
+    var rail = document.querySelector('[data-rail]');
+    if (!rail) return;
+    var step = function () { var c = rail.querySelector('.person'); return c ? c.getBoundingClientRect().width + 24 : 320; };
+    document.querySelector('[data-rail-prev]').addEventListener('click', function () { rail.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    document.querySelector('[data-rail-next]').addEventListener('click', function () { rail.scrollBy({ left: step(), behavior: 'smooth' }); });
+  })();
+</script>
+</body>
+</html>

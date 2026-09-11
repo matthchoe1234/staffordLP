@@ -1,0 +1,162 @@
+/* ============================================================================
+   Graymatter brand tokens
+   Source of truth: Notion, Graymatter Hub / Graymatter Brand Intake
+     1. Colors (Primitives, Semantics), 2. Typography (Font Primitives, Type Styles,
+     Web/UI Type Scale), 3. Logos and Marks, 5. Iconography, 7. Layout System,
+     10. Copy compliance and brand voice standard.
+   Cross-checked against: Sell Sheet Design Direction (Brand Guidelines Edition 01, 2026)
+   and the Figma Styles Library task (Sep 8 2026).
+   Transcribed 2026-09-11. If Notion changes, change this file, then every page follows.
+
+   Rule from Notion: pages reference SEMANTIC tokens (--surface-*, --text-*, --highlight-*),
+   never the primitives directly. Primitives exist here only so semantics can point at them.
+   ========================================================================== */
+
+/* ---------- Webfonts ------------------------------------------------------
+   Files are the exact woff2 the live Shopify theme serves (theme t/139 style.css).
+   Exposure is a variable optical axis family shipped as separate static cuts.
+   Notion: "-40 for Bold headings, +40 for Light headings". 0 and -10 are the mid cuts
+   the live site uses for serif subheads. Fallback stacks are from Font Primitives:
+   Exposure -> Fraunces -> Georgia -> serif; Monument Mono -> Roboto Mono -> monospace.
+   ------------------------------------------------------------------------ */
+@font-face {
+  font-family: "Exposure Bold";           /* optical -40, the display headline cut */
+  src: url("../../assets/fonts/Exposure-40-Regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Exposure Text";           /* optical -10, live-site subhead cut */
+  src: url("../../assets/fonts/Exposure-10-Regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Exposure";                /* optical 0, neutral serif */
+  src: url("../../assets/fonts/Exposure0-Regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Exposure Light";          /* optical +40, the soft display cut */
+  src: url("../../assets/fonts/Exposure40-Regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "ABC Monument Grotesk Mono";
+  src: url("../../assets/fonts/ABCMonumentGroteskMono-Regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "ABC Monument Grotesk Mono";
+  src: url("../../assets/fonts/ABCMonumentGroteskMono-RegularItalic.woff2") format("woff2");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "ABC Monument Grotesk Mono";
+  src: url("../../assets/fonts/ABCMonumentGroteskMono-Bold.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* ---------- Color primitives (Notion: Primitives table, 8 rows) -------
+     Tier 1, pure identity, no assigned job. Do not use in pages. */
+  --gm-lucid:       #FFFFFF;
+  --gm-linen:       #F5F5F5;
+  --gm-tarmac:      #161616;
+  --gm-meadow:      #E6FDA5;
+  --gm-brainwave:   #FF567F;
+  --gm-olive:       #8AA665;
+  --gm-powder-blue: #CDD9E8;
+  --gm-sky-blue:    #7197C3;
+
+  /* ---------- Color semantics (Notion: Semantics table, 15 rows) ---------
+     Tier 2. These are what pages reference. "Not for" guardrails are in the comments. */
+  --surface-base:     var(--gm-lucid);        /* default page / section background */
+  --surface-subtle:   var(--gm-linen);        /* secondary section separation from base */
+  --surface-inverse:  var(--gm-tarmac);       /* dark sections; pairs with text-inverse */
+  --surface-accent:   var(--gm-meadow);       /* CTA fill / selected state. Not body text, not large fills */
+  --surface-urgent:   var(--gm-brainwave);    /* urgency / exclusivity fill only, never general */
+  --surface-cool:     var(--gm-powder-blue);  /* atmosphere background, full-bleed only, Tarmac text */
+  --surface-nature:   var(--gm-olive);        /* atmosphere background, full-bleed only, Tarmac text */
+  --surface-blue:     var(--gm-sky-blue);     /* atmosphere background, full-bleed only, Tarmac text */
+
+  --text-primary:        var(--gm-tarmac);    /* universal body text. Fails contrast only on surface-inverse */
+  --text-inverse:        var(--gm-lucid);     /* light text on Tarmac */
+  --text-inverse-subtle: var(--gm-linen);     /* softer light text on Tarmac */
+  --text-highlight:      var(--gm-meadow);    /* Meadow applied to a key word. Dark backgrounds only */
+
+  --highlight-focus:   var(--gm-meadow);      /* draw attention, non-text, large elements */
+  --highlight-inverse: var(--gm-tarmac);      /* Tarmac fill behind text on light or Meadow */
+  --highlight-urgent:  var(--gm-brainwave);   /* urgency marker, non-text */
+
+  /* ---------- Flavor color primitives (APPROXIMATE) ------------------------
+     Notion has a Flavor Color Primitives table (Accent + Tint per flavor) but the data source query
+     quota blocked it on 2026-09-11. These are medians sampled from the label ink in the packaging
+     photography (bag-hero.png, productimg.png, pic6.jpg). Replace with the Notion hex values and
+     delete this comment the moment the table is readable. Screen only. Filled flavor pill = one per
+     surface; swatch dots beside a flavor name are the compact form used here. */
+  --flavor-tangerine:  #FAA636;
+  --flavor-strawberry: #E28492;
+  --flavor-cacao:      #935D48;
+
+  /* Derived hairline: Notion Sell Sheet guide, "1px Tarmac hairline does all structural work".
+     On dark surfaces the same hairline reads as Linen at reduced alpha. */
+  --hairline:         var(--gm-tarmac);
+  --hairline-inverse: rgba(245, 245, 245, 0.28);
+
+  /* ---------- Typography (Notion: Font Primitives + Web/UI Type Scale) ---- */
+  --font-display-bold:  "Exposure Bold", "Fraunces", Georgia, serif;   /* -40 cut */
+  --font-display-light: "Exposure Light", "Fraunces", Georgia, serif;  /* +40 cut */
+  --font-display:       "Exposure", "Fraunces", Georgia, serif;        /* 0 cut */
+  --font-display-text:  "Exposure Text", "Fraunces", Georgia, serif;   /* -10 cut */
+  --font-mono:          "ABC Monument Grotesk Mono", "Roboto Mono", ui-monospace, monospace;
+
+  /* Web/UI scale: 48px h1 down to 12px small, every value a multiple of 4 (Layout System).
+     Display sizes above 48 are for hero moments only (the Figma specimen tops out at h1 48;
+     the Social scale goes to 128, so 64 and 80 are sanctioned for hero display work). */
+  --fs-display-xl: 80px;
+  --fs-display:    64px;
+  --fs-h1:         48px;
+  --fs-h2:         40px;
+  --fs-h3:         32px;
+  --fs-h4:         24px;
+  --fs-lead:       20px;
+  --fs-body:       16px;
+  --fs-small:      14px;
+  --fs-caption:    12px;
+
+  /* Leading and tracking: Sell Sheet guide. Display 105%. Mono lead 140% / -1%.
+     Mono body 145% / 0. Eyebrow 4% tracking. Caption -2%. */
+  --lh-display: 1.05;
+  --lh-tight:   1.15;
+  --lh-lead:    1.4;
+  --lh-body:    1.45;
+  --ls-display: 0;
+  --ls-lead:   -0.01em;
+  --ls-eyebrow: 0.04em;
+  --ls-caption: -0.02em;
+
+  /* ---------- Spacing (Notion: Layout System, 4/8 rhythm; Sell Sheet sp-* scale) --- */
+  --space-1:  4px;    /* micro gaps */
+  --space-2:  8px;    /* tight internal padding */
+  --space-3:  12px;
+  --space-4:  16px;   /* standard internal padding, also the FDA box padding (space.md) */
+  --space-5:  24px;   /* section gaps */
+  --space-6:  32px;   /* card padding */
+  --space-7:  48px;
+  --space-8:  64px;   /* column gutters */
+  --space-9:  96px;   /* section vertical rhythm on web */
+  --space-10: 128px;  /* hero frame padding */
+
+  /* ---------- Radii (Sell Sheet guide) ------------------------------------ */
+  --radius-sm:   8px;    /* swatches, small UI */
+  --radius-md:   16px;   /* cards and tiles */
+  --radius-lg:   24px;   /* section blocks */
+  --radius-pill: 99px;   /* buttons, pills, badges */
+
+  /* ---------- Layout ------------------------------------------------------ */
+  --content-max: 1200px;
+  --content-pad: 24px;   /* mobile side padding */
+  --content-pad-lg: 48px;
+
+  /* Elevation: brand is almost shadowless. The only permitted lift is a hairline. */
+  --shadow-none: none;
+}

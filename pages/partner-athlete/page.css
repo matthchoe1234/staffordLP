@@ -1,0 +1,193 @@
+/* ============================================================================
+   pages/partner-athlete/page.css
+   Layout only. Colors, type, radii, spacing all come from tokens.css / base.css.
+   Breakpoint: 960px (two-column layouts collapse below it).
+   ========================================================================== */
+
+/* ---------- 0. Announcement ------------------------------------------------ */
+.announce { text-align: center; padding: var(--space-2) var(--space-4); }
+.announce p { margin: 0; }
+
+/* ---------- 1. Header -------------------------------------------------------- */
+.site-header { position: sticky; top: 0; z-index: 10; }
+.site-header__row { display: flex; align-items: center; justify-content: space-between; min-height: 64px; gap: var(--space-5); }
+.site-header__logo img { height: 24px; width: auto; }
+.site-header__nav { display: none; gap: var(--space-6); font-size: var(--fs-small); font-weight: 700; }
+.site-header__nav a:hover { color: var(--text-highlight); }
+.site-header__cart { display: inline-flex; align-items: center; gap: var(--space-2); }
+.site-header__cart svg { width: 20px; height: 20px; }
+@media (min-width: 960px) { .site-header__nav { display: flex; } }
+
+/* ---------- 2. Founders film ------------------------------------------------------ */
+/* Full-bleed like the source page: the thumbnail spans the viewport, 16:9, capped at 640px tall
+   (the Stafford LP embed measures 576px at 1024 wide). Meta sits top-left inside the frame the way
+   YouTube's own title overlay does. On click the poster is replaced by the iframe, same box. */
+.film { padding: 0; }
+.film__frame { margin: 0; }
+.film__stage { position: relative; aspect-ratio: 16 / 9; max-height: 640px; width: 100%; overflow: hidden; background: var(--surface-inverse); }
+.film__poster { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.film__stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.film__meta {
+  position: absolute; top: var(--space-4); left: var(--content-pad); right: var(--content-pad);
+  display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-3);
+  color: var(--text-inverse); pointer-events: none;
+}
+.film__play {
+  position: absolute; inset: 0; margin: auto; width: 80px; height: 80px;
+  border-radius: 50%; background: var(--surface-base); color: var(--text-primary);
+  display: grid; place-items: center; transition: background-color .2s ease, transform .2s ease;
+}
+.film__play svg { width: 32px; height: 32px; fill: currentColor; margin-left: 4px; }
+.film__play:hover { background: var(--surface-accent); transform: scale(1.04); }
+@media (min-width: 960px) { .film__meta { left: var(--content-pad-lg); top: var(--space-5); } }
+
+/* ---------- 3. Hero ------------------------------------------------------------- */
+.hero { display: grid; grid-template-columns: 1fr; }
+.hero__copy { position: relative; }
+/* Graph-grid texture from the site, held at low opacity so it reads as paper, not as UI. */
+.hero__copy::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: url("../../assets/icons/Frame_627223.png") center / 420px auto repeat;
+  opacity: .5;
+}
+.hero__inner { position: relative; padding: var(--space-8) var(--content-pad); max-width: 640px; }
+.hero__title { display: flex; flex-direction: column; gap: var(--space-1); }
+.hero__title .t-display { font-size: clamp(36px, 4.4vw, 56px); }
+.hero__bio { max-width: 520px; }
+.hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.hero__media { min-height: 360px; }
+.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 35%; }
+@media (min-width: 960px) {
+  .hero { grid-template-columns: 1fr 1fr; min-height: 720px; }
+  .hero__inner { padding: var(--space-9) var(--space-8) var(--space-9) max(var(--content-pad-lg), calc((100vw - var(--content-max)) / 2)); }
+  .hero__media { min-height: 0; }
+}
+
+/* ---------- 4. Quote ------------------------------------------------------------ */
+.quote { padding-block: var(--space-8); position: relative; }
+/* Halftone dots from the bag artwork, held near-invisible. A pattern, not a color gradient. */
+.quote::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(22, 22, 22, .09) 1.2px, transparent 1.6px); background-size: 14px 14px; }
+.quote > .wrap { position: relative; }
+.quote__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-6); align-items: center; }
+.quote__photo { width: min(320px, 70vw); margin: 0 auto; }
+.quote__photo img { filter: grayscale(1); }
+.quote__text { font-size: clamp(20px, 2.2vw, 28px); }
+.quote__attr { margin-top: var(--space-5); }
+.quote__attr p + p { margin-top: var(--space-1); }
+@media (min-width: 960px) {
+  .quote { padding-block: var(--space-9); }
+  .quote__grid { grid-template-columns: 5fr 7fr; gap: var(--space-8); }
+  .quote__photo { width: 100%; max-width: 400px; margin: 0; }
+}
+
+/* ---------- 5. Blends ------------------------------------------------------------- */
+.blends__intro { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin-bottom: var(--space-7); }
+.blends__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin-bottom: var(--space-7); }
+.blend { display: flex; flex-direction: column; gap: var(--space-4); }
+.blend__icon { width: 48px; height: 48px; }
+.blend__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap; }
+.blend__list { margin-top: auto; }
+.badges { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); justify-items: center; margin-bottom: var(--space-7); }
+.badge { width: 128px; }
+.badge svg { width: 100%; height: auto; }
+.badge__label { font-family: var(--font-mono); font-weight: 700; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; fill: currentColor; }
+@media (min-width: 640px) { .badges { grid-template-columns: repeat(4, 1fr); } .badge { width: 144px; } }
+.attrs { display: flex; flex-wrap: wrap; justify-content: center; }
+.attrs li { padding: var(--space-3) var(--space-5); text-transform: uppercase; letter-spacing: var(--ls-eyebrow); border-left: 1px solid var(--hairline); }
+.attrs li:first-child { border-left: 0; }
+@media (min-width: 640px) { .blends__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) {
+  .blends__intro { grid-template-columns: 5fr 7fr; gap: var(--space-8); align-items: start; }
+  .blends__grid { grid-template-columns: repeat(4, 1fr); gap: var(--space-5); }
+  .attrs li { padding: var(--space-4) var(--space-5); }
+}
+
+/* ---------- 6. Formats ------------------------------------------------------------ */
+.formats__intro { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin-bottom: var(--space-7); }
+.flavors { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); }
+.flavors li { display: inline-flex; align-items: center; gap: var(--space-2); }
+.swatch { width: 12px; height: 12px; border-radius: 50%; background: var(--swatch); border: 1px solid var(--hairline); display: inline-block; }
+.formats__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); }
+.format { display: flex; flex-direction: column; gap: var(--space-4); text-align: center; }
+.format__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap; text-align: left; }
+.format img { width: 70%; max-width: 320px; margin: 0 auto; aspect-ratio: 1; object-fit: contain; transition: transform .25s ease; }
+.format:hover img { transform: translateY(-4px); }
+.format__price { margin-top: auto; }
+.formats__note { margin-top: var(--space-5); opacity: .7; }
+@media (min-width: 640px) { .formats__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-5); } }
+@media (min-width: 960px) { .formats__intro { grid-template-columns: 5fr 7fr; gap: var(--space-8); align-items: end; } }
+
+/* ---------- 7. Mechanism ------------------------------------------------------------ */
+.mechanism { display: grid; grid-template-columns: 1fr; }
+.mechanism__media { position: relative; min-height: 480px; overflow: hidden; }
+.mechanism__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55; }
+.mechanism__stat { position: absolute; left: var(--content-pad); right: var(--content-pad); bottom: var(--space-7); }
+.mechanism__stat .t-display-xl { line-height: .95; }
+.mechanism__stat .t-h3 { margin-top: var(--space-2); max-width: 420px; }
+.mechanism__inner { padding: var(--space-8) var(--content-pad); max-width: 640px; }
+.mechanism__lead { margin-bottom: var(--space-5); }
+.timeline { margin-top: var(--space-7); }
+.timeline__row { padding-block: var(--space-5); display: grid; gap: var(--space-2); }
+@media (min-width: 960px) {
+  .mechanism { grid-template-columns: 1fr 1fr; }
+  .mechanism__media { min-height: 0; }
+  .mechanism__stat { left: var(--space-8); bottom: var(--space-8); }
+  .mechanism__inner { padding: var(--space-9) max(var(--content-pad-lg), calc((100vw - var(--content-max)) / 2)) var(--space-9) var(--space-8); max-width: none; }
+  .timeline__row { grid-template-columns: 200px 1fr; gap: var(--space-6); align-items: start; }
+}
+
+/* ---------- 8. People ---------------------------------------------------------------- */
+.people__intro { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin-bottom: var(--space-7); }
+.people__intro-side { display: grid; gap: var(--space-5); }
+.people__nav { display: flex; gap: var(--space-2); }
+.rail-btn {
+  width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--hairline);
+  display: grid; place-items: center; transition: background-color .2s ease, color .2s ease;
+}
+.rail-btn svg { width: 18px; height: 18px; }
+.rail-btn:hover { background: var(--surface-inverse); color: var(--text-inverse); }
+.rail {
+  display: flex; gap: var(--space-5); overflow-x: auto; scroll-snap-type: x mandatory;
+  padding-bottom: var(--space-2); scrollbar-width: none;
+  margin-inline: calc(-1 * var(--content-pad)); padding-inline: var(--content-pad);
+}
+.rail::-webkit-scrollbar { display: none; }
+.person { flex: 0 0 280px; scroll-snap-align: start; display: grid; gap: var(--space-2); align-content: start; }
+.person__photo { width: 200px; margin-bottom: var(--space-3); }
+.person__photo img { filter: grayscale(1); }
+.person__photo--mono { aspect-ratio: 1; }
+.person__photo--mono span { position: relative; z-index: 1; }
+.person__role { opacity: .7; }
+.person__quote { margin-top: var(--space-2); font-style: italic; }
+.people__cta { margin-top: var(--space-7); }
+@media (min-width: 960px) {
+  .people__intro { grid-template-columns: 5fr 7fr; gap: var(--space-8); align-items: start; }
+  .people__intro-side { grid-template-columns: 1fr auto; align-items: start; }
+  .rail { margin-inline: 0; padding-inline: 0; }
+  .person { flex-basis: 300px; }
+}
+
+/* ---------- 9. Footer ------------------------------------------------------------------ */
+.site-footer { padding-block: var(--space-8) var(--space-6); }
+.site-footer__top { display: grid; grid-template-columns: 1fr; gap: var(--space-7); padding-bottom: var(--space-7); }
+.site-footer__top img { height: 32px; width: auto; }
+.capture__row { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.capture__input {
+  flex: 1 1 220px; min-height: 48px; padding: 0 var(--space-5);
+  border-radius: var(--radius-pill); border: 1px solid var(--hairline-inverse);
+  background: transparent; color: var(--text-inverse); font: inherit;
+}
+.capture__input::placeholder { color: var(--text-inverse-subtle); opacity: .7; }
+.capture__input:focus { outline: 2px solid var(--surface-accent); outline-offset: 2px; }
+.site-footer__cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); padding-block: var(--space-7); }
+.site-footer__cols ul { margin-top: var(--space-3); display: grid; gap: var(--space-2); }
+.site-footer__cols a { color: var(--text-inverse-subtle); }
+.site-footer__cols a:hover { color: var(--text-highlight); }
+.site-footer .disclaimer { margin-block: var(--space-2) var(--space-6); }
+.site-footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3); color: var(--text-inverse-subtle); }
+.site-footer__social { display: flex; gap: var(--space-4); }
+@media (min-width: 960px) {
+  .site-footer__top { grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: start; }
+  .site-footer__cols { grid-template-columns: repeat(4, 1fr); }
+}

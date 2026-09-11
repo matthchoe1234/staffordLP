@@ -1,0 +1,169 @@
+/* ============================================================================
+   Graymatter base + component layer
+   Depends on tokens.css. Everything here is a reusable component, page CSS does layout only.
+   Every value is on the 4pt grid (Notion: Layout System).
+   ========================================================================== */
+
+/* ---------- Reset ---------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--surface-base);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-feature-settings: "ss01" on;      /* Monument Mono stylistic set, harmless if absent */
+  -webkit-font-smoothing: antialiased;
+}
+img, svg, video { display: block; max-width: 100%; }
+img { height: auto; }              /* width/height attrs reserve space; CSS aspect-ratio wins */
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+h1, h2, h3, h4, p, ul, figure { margin: 0; }
+ul { padding: 0; list-style: none; }
+
+/* ---------- Layout primitives --------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--content-pad);
+}
+@media (min-width: 960px) { .wrap { padding-inline: var(--content-pad-lg); } }
+
+.section { padding-block: var(--space-8); }
+@media (min-width: 960px) { .section { padding-block: var(--space-9); } }
+
+/* Surfaces. Support colors are full-bleed only, always with Tarmac text (pairing rules). */
+.surface-base    { background: var(--surface-base);    color: var(--text-primary); }
+.surface-subtle  { background: var(--surface-subtle);  color: var(--text-primary); }
+.surface-cool    { background: var(--surface-cool);    color: var(--text-primary); }
+.surface-nature  { background: var(--surface-nature);  color: var(--text-primary); }
+.surface-inverse { background: var(--surface-inverse); color: var(--text-inverse); }
+
+/* ---------- Type styles (Notion: Type Styles, referenced never raw) -------- */
+/* Display Headline: Exposure -40, 105%, tracking 0, sentence case, ends with a period. */
+.t-display {
+  font-family: var(--font-display-bold);
+  font-size: clamp(40px, 6vw, var(--fs-display));
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  font-weight: 400;
+}
+.t-display-xl { font-size: clamp(48px, 8vw, var(--fs-display-xl)); }
+/* Display Soft: Exposure +40. Used as the counterpart line to a bold display line. */
+.t-display-light {
+  font-family: var(--font-display-light);
+  font-weight: 400;
+}
+.t-h1 { font-family: var(--font-display-bold); font-size: clamp(36px, 5vw, var(--fs-h1)); line-height: var(--lh-display); font-weight: 400; }
+.t-h2 { font-family: var(--font-display-bold); font-size: clamp(32px, 4vw, var(--fs-h2)); line-height: var(--lh-display); font-weight: 400; }
+.t-h3 { font-family: var(--font-display); font-size: clamp(24px, 3vw, var(--fs-h3)); line-height: var(--lh-tight); font-weight: 400; }
+.t-h4 { font-family: var(--font-display); font-size: var(--fs-h4); line-height: var(--lh-tight); font-weight: 400; }
+/* Serif subhead, live-site cut (-10). For "Trusted by ..." moments. */
+.t-subhead { font-family: var(--font-display-text); font-size: clamp(24px, 3vw, var(--fs-h3)); line-height: var(--lh-tight); font-weight: 400; }
+
+/* Mono Lead: intro paragraph, hero body. 140%, -1%. */
+.t-lead  { font-family: var(--font-mono); font-size: var(--fs-lead); line-height: var(--lh-lead); letter-spacing: var(--ls-lead); }
+.t-body  { font-family: var(--font-mono); font-size: var(--fs-body); line-height: var(--lh-body); }
+.t-small { font-family: var(--font-mono); font-size: var(--fs-small); line-height: var(--lh-body); }
+/* Mono Eyebrow: section labels. Sell Sheet guide sets these caps with 4% tracking; page 10 keeps
+   headlines sentence case. Eyebrows are labels, so Title Case is the compliant default here and
+   caps are reserved for packaging-mirroring attribute rows. */
+.t-eyebrow { font-family: var(--font-mono); font-size: var(--fs-small); font-weight: 700; letter-spacing: var(--ls-eyebrow); line-height: 1; }
+/* Mono Caption: fine print. */
+.t-caption { font-family: var(--font-mono); font-size: var(--fs-caption); line-height: var(--lh-body); letter-spacing: var(--ls-caption); }
+.t-quote { font-family: var(--font-mono); font-style: italic; font-size: var(--fs-lead); line-height: var(--lh-lead); } /* italics for quotations only */
+.t-bold { font-weight: 700; }
+
+/* Highlight treatment: one Meadow word in a Tarmac headline. Never body copy. */
+.hl { background: var(--surface-accent); color: var(--text-primary); padding: 0 0.12em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.surface-inverse .hl-text { color: var(--text-highlight); }  /* text.highlight, dark surfaces only */
+
+/* ---------- Buttons ---------------------------------------------------------
+   Pill radius 99. Sentence case labels. No uppercase, no unicode arrows: the arrow is an SVG.
+   Primary = surface.accent (Meadow) with Tarmac text: "Set Meadow type in Tarmac".
+   Secondary = hairline outline. Inverse = Tarmac fill for light surfaces. */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  min-height: 48px; padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono); font-size: var(--fs-body); font-weight: 700; line-height: 1;
+  border: 1px solid transparent;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+  white-space: nowrap;
+}
+.btn svg { width: 16px; height: 16px; }
+.btn--primary   { background: var(--surface-accent); color: var(--text-primary); border-color: var(--surface-accent); }
+.btn--primary:hover { background: var(--surface-inverse); color: var(--text-inverse); border-color: var(--surface-inverse); }
+.btn--secondary { background: transparent; color: var(--text-primary); border-color: var(--hairline); }
+.btn--secondary:hover { background: var(--surface-inverse); color: var(--text-inverse); }
+.btn--inverse   { background: var(--surface-inverse); color: var(--text-inverse); border-color: var(--surface-inverse); }
+.btn--inverse:hover { background: var(--surface-accent); color: var(--text-primary); border-color: var(--surface-accent); }
+.surface-inverse .btn--secondary { color: var(--text-inverse); border-color: var(--hairline-inverse); }
+.surface-inverse .btn--secondary:hover { background: var(--surface-base); color: var(--text-primary); }
+.btn--block { width: 100%; }
+
+/* ---------- Pills (Notion: Iconography, Badge Forms) ------------------------
+   Outlined pill = compact benefit or neutral label, dark text, hairline stroke.
+   Filled pill = flavor label, one per surface. Mono label, Title Case. */
+.pill {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  min-height: 28px; padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono); font-size: var(--fs-caption); font-weight: 700; line-height: 1;
+  letter-spacing: var(--ls-eyebrow);
+  border: 1px solid var(--hairline);
+  background: transparent; color: var(--text-primary);
+}
+.pill--filled { border-color: transparent; color: var(--text-inverse); }
+.pill--accent { background: var(--surface-accent); border-color: var(--surface-accent); color: var(--text-primary); }
+.surface-inverse .pill { border-color: var(--hairline-inverse); color: var(--text-inverse); }
+
+/* A visible placeholder for copy or assets that still need an owner. Brainwave = urgency,
+   non-text usage, so it is a stroke, not a fill. Remove before any real ship. */
+.todo-chip {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill);
+  border: 1px dashed var(--highlight-urgent); color: var(--text-primary);
+  font-family: var(--font-mono); font-size: var(--fs-caption); font-weight: 700; line-height: 1.2;
+}
+.surface-inverse .todo-chip { color: var(--text-inverse); }
+
+/* ---------- Cards -----------------------------------------------------------
+   Lucid, radius 16, 1px Tarmac hairline, no shadow (brand is almost shadowless). */
+.card {
+  background: var(--surface-base); color: var(--text-primary);
+  border: 1px solid var(--hairline); border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-none);
+}
+.card--subtle { background: var(--surface-subtle); }
+.card--inverse { background: var(--surface-inverse); color: var(--text-inverse); border-color: var(--surface-inverse); }
+
+/* ---------- Hairline rows (bag-style attribute row) ------------------------- */
+.hairline-top    { border-top: 1px solid var(--hairline); }
+.hairline-bottom { border-bottom: 1px solid var(--hairline); }
+.surface-inverse .hairline-top, .surface-inverse .hairline-bottom { border-color: var(--hairline-inverse); }
+
+/* ---------- Tick-ring frame (Iconography: radial tick-ring motif) -----------
+   Used to frame circular photos. Built with an SVG dash pattern so it stays vector. */
+.ring-frame { position: relative; display: grid; place-items: center; aspect-ratio: 1; }
+.ring-frame > img { border-radius: 50%; object-fit: cover; aspect-ratio: 1; width: 84%; }
+.ring-frame > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* ---------- FDA disclaimer box (Notion page 10: boxed, bold, 16px padding) --- */
+.disclaimer {
+  border: 1px solid var(--hairline); border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  font-family: var(--font-mono); font-size: var(--fs-caption); font-weight: 700; line-height: var(--lh-body);
+}
+.surface-inverse .disclaimer { border-color: var(--hairline-inverse); color: var(--text-inverse-subtle); }
+
+/* ---------- Utilities -------------------------------------------------------- */
+.stack > * + * { margin-top: var(--space-4); }
+.stack-lg > * + * { margin-top: var(--space-5); }
+.center { text-align: center; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

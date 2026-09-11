@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>lp-lab</title>
+<meta name="description" content="Graymatter landing page lab: competitor teardowns rebuilt on the brand system.">
+<!--
+  Root index for GitHub Pages. Every path here is relative, so the site works at
+  https://<user>.github.io/<repo>/ without any base-path config. Pages should be set to
+  deploy from the branch root. .nojekyll sits next to this file so nothing is filtered.
+-->
+<link rel="stylesheet" href="src/brand/tokens.css">
+<link rel="stylesheet" href="src/brand/base.css">
+<link rel="icon" href="assets/brand/graymatter-icon.png">
+<style>
+  /* Layout only. Tokens and components come from src/brand. */
+  .lab-header { padding: var(--space-6) 0; }
+  .lab-header img { height: 28px; width: auto; }
+  .lab-hero { padding: var(--space-8) 0 var(--space-7); }
+  .lab-hero .t-lead { max-width: 640px; margin-top: var(--space-5); }
+  .lab-list { display: grid; gap: var(--space-5); padding-bottom: var(--space-9); }
+  .lab-card { display: grid; gap: var(--space-4); }
+  .lab-card__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); }
+  .lab-card__meta { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .lab-card__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .lab-card__thumb { border: 1px solid var(--hairline); border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 16 / 9; }
+  .lab-card__thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .lab-footer { padding: var(--space-6) 0; }
+  @media (min-width: 960px) {
+    .lab-card { grid-template-columns: 5fr 7fr; gap: var(--space-8); align-items: start; }
+  }
+</style>
+</head>
+<body>
+
+<header class="lab-header surface-inverse">
+  <div class="wrap">
+    <a href="./" aria-label="lp-lab home"><img src="assets/brand/graymatter-wordmark-lucid.svg" alt="Graymatter" width="201" height="40"></a>
+  </div>
+</header>
+
+<main>
+  <section class="lab-hero surface-base">
+    <div class="wrap">
+      <p class="t-eyebrow">lp-lab</p>
+      <h1 class="t-h1" style="margin-top: var(--space-3)">Competitor landing pages, rebuilt on the Graymatter system.</h1>
+      <p class="t-lead">
+        Each entry is a competitor page torn down to its structure and conversion mechanics, then rebuilt
+        with Graymatter tokens, assets, and compliant copy. Anything in a dashed pink chip on a page is a
+        placeholder that still needs an owner. Nothing here is production.
+      </p>
+    </div>
+  </section>
+
+  <section class="surface-base">
+    <ul class="wrap lab-list">
+
+      <li class="card lab-card">
+        <a class="lab-card__thumb" href="pages/partner-athlete/" aria-label="Open the athlete partner page">
+          <img src="assets/video/kKZX1vOoWsk-maxres.jpg" alt="" width="1280" height="720" loading="lazy">
+        </a>
+        <div class="stack">
+          <div class="lab-card__head">
+            <h2 class="t-h3">Athlete partner page</h2>
+            <div class="lab-card__meta">
+              <span class="pill">Mirror of Magic Mind, Stafford LP</span>
+              <span class="pill">2026-09-11</span>
+            </div>
+          </div>
+          <p class="t-body">
+            Nine-block partner page: founders film, split hero on the ICP 1 mechanism, verbatim pull quote,
+            Olive blend section with certification badges, format grid from Shopify data, Tarmac mechanism
+            split with the homepage timeline, testimonial rail, footer with the boxed disclaimer.
+          </p>
+          <p class="t-small">Source: <a href="https://magicmind.com/pages/matthew-stafford-partner" style="text-decoration: underline">magicmind.com/pages/matthew-stafford-partner</a></p>
+          <div class="lab-card__actions">
+            <a class="btn btn--primary" href="pages/partner-athlete/">Open the page
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </a>
+            <a class="btn btn--secondary" href="deconstructions/2026-09-11-magicmind-stafford.md">Read the teardown</a>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+</main>
+
+<footer class="lab-footer surface-inverse">
+  <div class="wrap t-caption">
+    <p>Internal lab. Brand tokens transcribed from Notion Brand Intake. See SPEC.md in the repo for the workflow.</p>
+  </div>
+</footer>
+
+</body>
+</html>

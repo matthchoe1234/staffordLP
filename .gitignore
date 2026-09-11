@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+.env
+.env.*
+!.env.example
+
+# Raw competitor/site captures can embed storefront tokens. Local only.
+assets/ref/*.html
+assets/ref/*.css
